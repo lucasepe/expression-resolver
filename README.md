@@ -5,7 +5,9 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/lucasepe/expression-resolver.svg)](https://pkg.go.dev/github.com/lucasepe/expression-resolver)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-Simple Kubernetes operator for handling `Expression` CRDs. Use Kubernetes to solve expressions
+Simple Kubernetes operator for handling `Expression` CRDs.
+
+> Use Kubernetes for evaluating arbitrary expressions.
 
 [Kubernetes operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) implementation using the [client-go](https://github.com/kubernetes/client-go) library.
 
