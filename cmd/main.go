@@ -23,15 +23,11 @@ import (
 )
 
 func main() {
-	defaultKubeconfig := os.Getenv(clientcmd.RecommendedConfigPathEnvVar)
-	if len(defaultKubeconfig) == 0 {
-		defaultKubeconfig = clientcmd.RecommendedHomeFile
-	}
-
 	workers := flag.Int("workers", 1, "number of workers")
 
 	resyncIn := flag.Duration("resync", 30*time.Second, "resync period for the shared informer")
 
+	defaultKubeconfig := os.Getenv(clientcmd.RecommendedConfigPathEnvVar)
 	kubeconfig := flag.String(clientcmd.RecommendedConfigPathFlag,
 		defaultKubeconfig, "absolute path to the kubeconfig file")
 
