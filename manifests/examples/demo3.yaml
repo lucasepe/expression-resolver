@@ -2,7 +2,7 @@ apiVersion: example.org/v1alpha1
 kind: Expression
 metadata:
   name: demo3
-  namespace: default
+  namespace: using-client-go
 spec:
   body: x - y * z
   data: |-

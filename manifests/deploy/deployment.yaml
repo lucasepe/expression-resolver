@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: expression-resolver
-  namespace: expression-system
+  namespace: using-client-go
   labels:
     app: expression-resolver
 spec:

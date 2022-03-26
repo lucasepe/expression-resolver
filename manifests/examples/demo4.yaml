@@ -2,7 +2,7 @@ apiVersion: example.org/v1alpha1
 kind: Expression
 metadata:
   name: demo4
-  namespace: default
+  namespace: using-client-go
 spec:
   body: 0.5 *(x / (y + z))
   data: |-

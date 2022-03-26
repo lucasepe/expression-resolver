@@ -1,29 +1,29 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: expression-system
+  name: using-client-go
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: expression-resolver-sa
-  namespace: expression-system
+  namespace: using-client-go
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: expression-resolver-role
-  namespace: expression-system
+  namespace: using-client-go
 rules:
 - apiGroups: ["example.org"]
-  resources: ["expressions"]
+  resources: ["expressions", "expressions/status"]
   verbs: ["get", "list", "watch", "update"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: expression-resolver-role-binding
-  namespace: expression-system
+  namespace: using-client-go
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
