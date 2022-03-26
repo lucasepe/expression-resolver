@@ -10,6 +10,7 @@ import (
 
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
+	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/util/workqueue"
@@ -37,7 +38,13 @@ func main() {
 	klog.InitFlags(nil)
 	flag.Parse()
 
-	cfg, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
+	var cfg *rest.Config
+	var err error
+	if len(*kubeconfig) > 0 {
+		cfg, err = clientcmd.BuildConfigFromFlags("", *kubeconfig)
+	} else {
+		cfg, err = rest.InClusterConfig()
+	}
 	if err != nil {
 		klog.Fatalf("error building config: %s", err.Error())
 	}
