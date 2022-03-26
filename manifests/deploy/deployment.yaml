@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expression-resolver
+  namespace: expression-system
+  labels:
+    app: expression-resolver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expression-resolver
+  template:
+    metadata:
+      labels:
+        app: expression-resolver
+    spec:
+      serviceAccount: expression-resolver-sa
+      containers:
+      - name: expression-resolver
+        image: ghcr.io/lucasepe/expression-resolver:0.1.0
+        imagePullPolicy: Always
