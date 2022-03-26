@@ -101,10 +101,14 @@ func evalExpression(src *expressionv1alpha1.Expression) (string, error) {
 		return err.Error(), err
 	}
 
+	klog.Infof("evaluating expression '%s': %s (%v)", src.GetName(), src.Spec.Body, data)
+
 	val, err := gval.Evaluate(src.Spec.Body, data)
 	if err != nil {
 		return err.Error(), err
 	}
+
+	klog.Infof("expression '%s' result: %v", src.GetName(), val)
 
 	return strval(val), nil
 }
